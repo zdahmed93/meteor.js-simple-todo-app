@@ -1,27 +1,25 @@
 <head>
-  <title>my-first-meteor-app</title>
+  <title>Meteor Todo List App</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-{{> tasks}}
-
+  <div class="container">
+    {{> main}}
+  </div>
 </body>
 
-<template name="tasks">
-  <h2>the tasks are:</h2>
-    <ul>
-    {{#each tasks}}
-      {{> task}}
+<template name="main">
+  <form id="first-form" class="input-group add">
+    <input type="text" name="noteField" class="form-control">
+    <button type="submit" class="btn btn-info">Add</button>
+  </form>
+  <ul class="list-group">
+    {{#each todo in todos}}
+    <li class="list-group-item">
+      <input type="checkbox" id={{todo._id}} class="checking" name="checking" checked={{todo.checked}}>
+      <span class="{{#if todo.checked}}checkstyle{{/if}}">{{todo.text}}</span>
+      <button id={{todo._id}} class="btn btn-danger pull-right">X</button>
+    </li>
     {{/each}}
   </ul>
-  
 </template>
-
-<template name="task">
-  <li>{{text}}</li>
-</template>
-
-
-
