@@ -1,0 +1,27 @@
+<head>
+  <title>my-first-meteor-app</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+
+{{> tasks}}
+
+</body>
+
+<template name="tasks">
+  <h2>the tasks are:</h2>
+    <ul>
+    {{#each tasks}}
+      {{> task}}
+    {{/each}}
+  </ul>
+  
+</template>
+
+<template name="task">
+  <li>{{text}}</li>
+</template>
+
+
+
